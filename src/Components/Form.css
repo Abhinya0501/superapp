@@ -1,0 +1,88 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.body {
+  background: #1e1e1e;
+  color: white;
+  width: 50vw;
+  min-height: 100vh;
+  padding: 6vw;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+form label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+  color: white;
+}
+form label input {
+  margin: 0px;
+  padding: 0px;
+  width: 24px;
+}
+.footer p {
+  font-size: 14px;
+  color: #7c7c7c;
+  width: 70%;
+  margin-top: 30px;
+  position: relative;
+  left: 103px;
+  line-height: 1.2rem;
+}
+
+.button {
+  box-shadow: none;
+  width: 70%;
+  margin-top: 16px;
+  border-radius: 24px;
+  padding: 10px 12px;
+  color: white;
+  background-color: #72db73;
+  border: none;
+  position: relative;
+  left: 103px;
+  margin-top: 50px;
+}
+.formH1 {
+  position: relative;
+  display: block;
+  color: rgb(64, 255, 0);
+  width: 239px;
+  height: 64px;
+  top: 10px;
+  left: 250px;
+}
+.formP1 {
+  position: relative;
+  width: 292px;
+  height: 27px;
+  left: 210px;
+  color: white;
+  margin-bottom: 30px;
+  font-family: DM Sans;
+  font-size: 25px;
+  font-weight: 300;
+  line-height: 32px;
+  letter-spacing: 0em;
+}
+.formDiv1 {
+  width: 50vw;
+  height: 100vh;
+  background-color: black;
+}
+
+form input {
+  display: block;
+  margin: 16px auto;
+  padding: 12px;
+  width: 70%;
+  background-color: #292929;
+  border: none;
+  border-radius: 6px;
+  color: white;
+}
