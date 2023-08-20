@@ -1,0 +1,20 @@
+.cardDiv1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0px 0px;
+}
+
+.cardDivBtn > button {
+  background-color: #148a08;
+  color: #ffffff;
+  font-family: DM Sans;
+  font-size: 16px;
+  font-weight: 200;
+  padding: 8px;
+  text-align: center;
+  margin-top: 25px;
+  border-radius: 30px;
+  border-style: none;
+  position: absolute;
+  left: 1195px;
+}
