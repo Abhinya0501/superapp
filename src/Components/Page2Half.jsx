@@ -1,6 +1,7 @@
 import React from "react";
 import "../Components/Page2Half.css";
-export default function Page2Half() {
+import P2hButton from "../Components/P2hButton";
+export default function Page2Half(props) {
   return (
     <>
       <div className="p2Div1">
@@ -8,6 +9,26 @@ export default function Page2Half() {
       </div>
       <div className="p2Div2">
         <h2>Choose your entertainment category</h2>
+      </div>
+      <div className="p2Div3">
+        {props.handleBtn.map((title, index) => {
+          return (
+            <P2hButton
+              title={title}
+              handleBtn={props.handleBtn}
+              setHandleBtn={props.setHandleBtn}
+            />
+          );
+        })}
+        {props.trueBtn.map((title, index) => {
+          return (
+            <P2hButton
+              title={title}
+              trueBtn={props.trueBtn}
+              setTrueBtn={props.setTrueBtn}
+            />
+          );
+        })}
       </div>
     </>
   );

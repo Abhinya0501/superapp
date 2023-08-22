@@ -5,11 +5,9 @@
 }
 
 .scPageDiv1 {
-  border: 2px solid blue;
   width: 35%;
 }
 
 .scPageDiv2 {
   width: 65%;
-  border: 2px solid red;
 }

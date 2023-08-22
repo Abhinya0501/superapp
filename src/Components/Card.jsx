@@ -1,60 +1,28 @@
 import React from "react";
 import "../Components/Card.css";
+// import Chips from '../Global/Chips'
+import { useState } from "react";
+// import { useNavigate } from 'react-router-dom'
 export default function Card(props) {
-  function clickedClassHandler(name, callback) {
-    // apply click handler to all elements with matching className
-    var allElements = document.body.getElementsByTagName("*");
-
-    for (var x = 0, len = allElements.length; x < len; x++) {
-      if (allElements[x].className === name) {
-        allElements[x].onclick = handleClick;
-      }
+  const [isActive, setIsActive] = useState(false);
+  function handleClickk(title) {
+    const found = props.handleBtn.find((element) => element === props.title);
+    if (!found) {
+      props.setHandleBtn([...props.handleBtn, props.title]);
+    } else {
+      const array = props.handleBtn.filter((ele) => ele !== props.title);
+      props.setHandleBtn(array);
     }
 
-    function handleClick() {
-      var elmParent = this.parentNode;
-      var parentChilds = elmParent.childNodes;
-      var index = 0;
-
-      for (var x = 0; x < parentChilds.length; x++) {
-        if (parentChilds[x] === this) {
-          break;
-        }
-
-        if (parentChilds[x].className === name) {
-          index++;
-        }
-      }
-
-      callback.call(this, index);
-    }
+    setIsActive((current) => !current);
   }
-
   return (
     <div>
       <div
-        class="card"
+        className={props.trueBtn ? (isActive ? "card1" : "") : ""}
         id="idcard"
         style={{ backgroundColor: props.color }}
-        onClick={
-          // function myFunction() {
-          //   var element = document.getElementById("idcard");
-          //   element.classList.toggle("card1");
-          // }
-          clickedClassHandler("card", function (index) {
-            // do something with the index
-
-            // 'this' refers to the element
-            // so you could do something with the element itself
-            // this[index].style.border = "5px solid green";
-            // alert("clicked");
-            // var element = document.getElementsByClassName("card");
-            this.classList.toggle("card1");
-            // const para = document.createElement("p");
-            // const node = document.createTextNode("This is new.");
-            // para.appendChild(node);
-          })
-        }
+        onClick={handleClickk}
       >
         <div class="container">
           <p>
