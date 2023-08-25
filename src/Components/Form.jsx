@@ -61,6 +61,7 @@ export default function Form() {
   return (
     <div className="formDiv1">
       <h1 className="formH1">Super App</h1>
+
       <p className="formP1">Create a new Account</p>
 
       <form>
@@ -113,7 +114,7 @@ export default function Form() {
             handleSubmit(e);
           }}
         >
-          SIgn up
+          Sign up
         </button>
       </form>
 

@@ -20,7 +20,7 @@ export default function Page2Half(props) {
             />
           );
         })}
-        {props.trueBtn.map((title, index) => {
+        {/* {props.trueBtn.map((title, index) => {
           return (
             <P2hButton
               title={title}
@@ -28,7 +28,7 @@ export default function Page2Half(props) {
               setTrueBtn={props.setTrueBtn}
             />
           );
-        })}
+        })} */}
       </div>
     </>
   );

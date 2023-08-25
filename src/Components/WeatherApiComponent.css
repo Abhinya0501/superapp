@@ -1,0 +1,44 @@
+.wDiv1 {
+  background-color: #ff4ade;
+  border-top-left-radius: 19px;
+  border-top-right-radius: 19px;
+  color: rgb(255, 255, 255);
+}
+.wSpan1 {
+  padding: 20px;
+  margin: 5px;
+  font-family: Roboto;
+  font-size: 33px;
+  font-weight: 600;
+  line-height: 39px;
+  letter-spacing: 0em;
+  text-align: right;
+}
+
+.weatherInfo {
+  display: flex;
+  margin-right: 90px;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+}
+.condition {
+  width: 50px;
+  height: 45px;
+  margin-right: 90px;
+
+  margin-left: 10px;
+}
+.conditionText {
+  margin-left: 15px;
+}
+.temp {
+  margin-bottom: 10px;
+  font-size: 24px;
+  margin-top: 10px;
+  margin-right: 90px;
+}
+.wDiv2 {
+  display: flex;
+  color: white;
+}

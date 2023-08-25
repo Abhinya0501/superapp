@@ -1,0 +1,50 @@
+.notesDivH1 {
+  margin-top: 30px;
+  margin-left: 30px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.notesDivP1 > textarea {
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 50;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+  text-align: left;
+  background-color: #f1c75b;
+
+  color: #000000;
+  padding: 15px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  word-wrap: break-word;
+  border-style: none;
+  margin-left: 15px;
+  resize: none;
+}
+
+.notesDivP1 > textarea:focus-visible {
+  outline: 0px;
+}
+
+textarea::-webkit-scrollbar {
+  width: 12px;
+}
+
+textarea::-webkit-scrollbar-track {
+  -webkit-box-shadow: none;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: #ffe6a6;
+  outline: none;
+  border-radius: 17px;
+}

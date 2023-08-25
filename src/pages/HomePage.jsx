@@ -1,16 +1,23 @@
 import React from "react";
-import Homeimage from "../Components/Homeimage";
-import Form from "../Components/Form";
-import "./HomePage.css";
-
+import "../pages/HomePage.css";
+import WeatherApi from "../Components/WeatherApi";
+import ProfileCard from "../Components/ProfileCard";
+import Notes from "../Components/Notes";
 export default function HomePage() {
   return (
-    <div className="appDiv1">
-      <div className="appDiv2">
-        <Homeimage />
-      </div>
-      <div className="appDiv3">
-        <Form />
+    <div>
+      <div className="hpMainDiv1">
+        <div>
+          <div className="profileDiv">
+            <ProfileCard />
+          </div>
+          <div className="profileDiv2">
+            <WeatherApi />
+          </div>
+        </div>
+        <div className="notesDiv1">
+          <Notes />
+        </div>
       </div>
     </div>
   );
