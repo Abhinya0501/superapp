@@ -16,7 +16,7 @@ export default function WeatherApi() {
         .then((res) => res.json())
         .then((result) => {
           setData(result);
-          console.log(result);
+          // console.log(result);
         });
     };
     fetchData();
