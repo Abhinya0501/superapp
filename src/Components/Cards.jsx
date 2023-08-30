@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import cardimg from "../assets/cardimg1.png";
 import dramaimg from "../assets/drama.png";
 import fantasyimg from "../assets/fantasy.png";
@@ -10,7 +10,14 @@ import musicimg from "../assets/music.png";
 import fictionimg from "../assets/fiction.png";
 import Card from "../Components/Card";
 import "../Components/Cards.css";
+import { useNavigate } from "react-router-dom";
+
 export default function Cards(props) {
+  const navigate = useNavigate();
+
+  const onSubmit = () => {
+    navigate("/homepage");
+  };
   return (
     <>
       <div className="mainDiv">
@@ -115,7 +122,7 @@ export default function Cards(props) {
             setTrueBtn={props.setTrueBtn}
           />
           <div className="cardDivBtn">
-            <button>Next Page</button>
+            <button onClick={onSubmit}>Next Page</button>
           </div>
         </div>
       </div>

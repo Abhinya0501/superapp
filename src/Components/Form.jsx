@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import "../Components/Form.css";
+import { useNavigate } from "react-router-dom";
 export default function Form() {
+  const navigate = useNavigate();
   const [formValue, setFormValue] = useState({
     name: "",
     username: "",
@@ -55,6 +57,7 @@ export default function Form() {
     }
     if (valid) {
       window.localStorage.setItem("userData", JSON.stringify(formValue));
+      navigate("/selectcategory");
     }
   };
 

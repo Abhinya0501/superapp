@@ -1,7 +1,7 @@
 import React from "react";
 import "../Components/News.css";
 import { useEffect, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 //API key : 20a49f50669640eab2d8aaa0475b1762
 export default function News() {
   const [newsData, setNewsData] = useState([]);
@@ -18,6 +18,11 @@ export default function News() {
   useEffect(() => {
     getData();
   }, []);
+
+  const navigate = useNavigate();
+  const onHandleClick = () => {
+    navigate("/Movies");
+  };
 
   return (
     <>
@@ -41,7 +46,7 @@ export default function News() {
         </div>
       </div>
       <div className="browseBtn">
-        <button>Browse</button>
+        <button onClick={onHandleClick}>Browse</button>
       </div>
     </>
   );

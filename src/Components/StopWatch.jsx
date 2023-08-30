@@ -1,111 +1,188 @@
 import React, { useEffect, useState } from "react";
-import StopImg from "../assets/arrowStop.png";
-import StopDownImg from "../assets/arrowStopDown.png";
+import Up from "../assets/arrowStop.png";
+import down from "../assets/arrowStopDown.png";
 import "./StopWatch.css";
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 export default function StopWatch() {
-  const [hour, setHour] = useState(0);
-  const [min, setMin] = useState(0);
-  const [sec, setSec] = useState(0);
-  const [stop, setStop] = useState(true);
+  const [inputHour, setInputHour] = useState(0);
+  const [inputMinutes, setInputMinutes] = useState(0);
+  const [inputSeconds, setInputSeconds] = useState(0);
+  const [timerIsStart, setTimerIsStart] = useState(false);
   const [time, setTime] = useState(0);
-
   useEffect(() => {
     if (time > 0) {
       const interval = setInterval(() => {
-        setTime((time) => time + 1);
+        setTime((time) => time - 1);
       }, 1000);
       return () => clearInterval(interval);
+    } else {
+      setInputMinutes(0);
+      setInputHour(0);
+      setInputSeconds(0);
     }
   }, [time]);
-
-  useEffect(() => {
-    let interval = null;
-    if (!stop) {
-      interval = setInterval(() => {
-        if (min > 59) {
-          setHour(hour + 1);
-          setMin(0);
-          clearInterval(interval);
-        }
-        if (sec > 59) {
-          setMin(min + 1);
-          setSec(0);
-          clearInterval(interval);
-        }
-        if (sec < 59) {
-          setSec(sec + 1);
-
-          clearInterval(interval);
-        }
-      }, 1000);
-    } else {
-      clearInterval(interval);
-    }
-    return () => {
-      clearInterval(interval);
-    };
-  });
-
-  const totalInputTimeInSeconds = hour * 60 * 60 + min * 60 + sec;
+  const totalInputTimeInSeconds =
+    inputHour * 60 * 60 + inputMinutes * 60 + inputSeconds;
 
   const showTimer = (totalTimeInSeconds) => {
-    const hour1 = Math.floor(totalTimeInSeconds / 3600);
+    const hour = Math.floor(totalTimeInSeconds / 3600);
     totalTimeInSeconds %= 3600;
-    const min1 = Math.floor(totalTimeInSeconds / 60);
-    const sec1 = totalTimeInSeconds % 60;
-    return `${hour1 < 10 ? "0" + hour1 : hour1}:${
-      min1 < 10 ? "0" + min1 : min1
-    }:${sec1 < 10 ? "0" + sec1 : sec1}`;
+    const min = Math.floor(totalTimeInSeconds / 60);
+    const sec = totalTimeInSeconds % 60;
+    return `${hour < 10 ? "0" + hour : hour}:${min < 10 ? "0" + min : min}:${
+      sec < 10 ? "0" + sec : sec
+    }`;
   };
-  const onStart = () => {
-    setStop(false);
-
-    setTime(totalInputTimeInSeconds);
+  const increaseHour = () => {
+    if (inputHour < 12) setInputHour(inputHour + 1);
+  };
+  const increaseMinute = () => {
+    if (inputMinutes < 59) {
+      setInputMinutes(inputMinutes + 1);
+    } else {
+      setInputMinutes(0);
+      setInputHour(inputHour + 1);
+    }
+  };
+  const increaseSecond = () => {
+    if (inputSeconds < 59) {
+      setInputSeconds(inputSeconds + 1);
+    } else {
+      setInputSeconds(0);
+      setInputMinutes(inputMinutes + 1);
+    }
+    if (inputMinutes > 59) {
+      setInputMinutes(0);
+      setInputHour(inputHour + 1);
+    }
+  };
+  const decreaseHour = () => {
+    if (inputHour > 0) setInputHour(inputHour - 1);
+  };
+  const decreaseMinute = () => {
+    if (inputMinutes > 0) {
+      setInputMinutes(inputMinutes - 1);
+    } else {
+      if (inputHour > 0) {
+        setInputMinutes(59);
+        setInputHour(inputHour - 1);
+      } else {
+        setInputHour(0);
+      }
+    }
+  };
+  const decreaseSecond = () => {
+    if (inputSeconds > 0) {
+      setInputSeconds(inputSeconds - 1);
+    } else {
+      if (inputMinutes > 0) {
+        setInputSeconds(59);
+        setInputMinutes(inputMinutes - 1);
+      } else {
+        setInputMinutes(0);
+      }
+      if (inputHour > 0) {
+        setInputMinutes(59);
+        setInputSeconds(59);
+        setInputHour(0);
+      }
+    }
   };
 
   return (
-    <div>
-      <div>
-        <div className="swdiv1">
-          <div className="swdivhand">
-            <p>Hours</p>
-            <p>Minutes</p>
-            <p>Seconds</p>
-          </div>
-
-          <div className="swStopUp">
-            <img src={StopImg} className="" alt="stopArrow" />
-            <img src={StopImg} alt="stopArrow" />
-            <img src={StopImg} alt="stopArrow" />
-          </div>
-
-          <div className="swStopDown">
-            <img src={StopDownImg} alt="stopArrow" />
-            <img src={StopDownImg} alt="stopArrow" />
-            <img src={StopDownImg} alt="stopArrow" />
-          </div>
-          <div className="swdivmainh1">
-            <h1 className="swdivh1">
-              <span>{hour}</span>:<span>{min}</span>:<span>{sec}</span>
-            </h1>
-          </div>
-        </div>
-
-        <div>
-          <button onClick={onStart} className="swbtn">
-            Start
-          </button>
+    <div className="timer_main">
+      <div className="timer">
+        <div className="timer_container">
+          <CountdownCircleTimer
+            isPlaying={timerIsStart ? true : false}
+            duration={totalInputTimeInSeconds}
+            colors={["#FF6A6A"]}
+          >
+            {({ remainingTime }) => <p> {showTimer(remainingTime)}</p>}
+          </CountdownCircleTimer>
         </div>
       </div>
-      <div>
-        <CountdownCircleTimer
-          isPlaying={!stop ? true : false}
-          duration={totalInputTimeInSeconds}
-          colors={["#FF6A6A"]}
+      <div style={{ width: "35vw", textAlign: "center" }}>
+        <div
+          style={{
+            color: "white",
+            display: "flex",
+            fontSize: "2rem",
+            justifyContent: "space-evenly",
+          }}
         >
-          {({ remainingTime }) => <p> {showTimer(time)}</p>}
-        </CountdownCircleTimer>
+          <div style={{ textAlign: "center", padding: "6px" }}>
+            <p>Hours</p>
+            <img
+              style={{ width: "20px", height: "20px", marginTop: "1rem" }}
+              onClick={increaseHour}
+              src={Up}
+              alt=""
+            />
+            <p>{inputHour}</p>
+            <img
+              style={{ width: "20px", height: "20px", marginTop: "0.5rem" }}
+              onClick={decreaseHour}
+              src={down}
+              alt=""
+            />
+          </div>
+          <div style={{ textAlign: "center", padding: "6px" }}>
+            <p>Minutes</p>
+            <img
+              style={{ width: "20px", height: "20px", marginTop: "1rem" }}
+              onClick={increaseMinute}
+              src={Up}
+              alt=""
+            />
+            <p>{inputMinutes}</p>
+            <img
+              style={{ width: "20px", height: "20px", marginTop: "0.5rem" }}
+              onClick={decreaseMinute}
+              src={down}
+              alt=""
+            />
+          </div>
+          <div style={{ textAlign: "center", padding: "6px" }}>
+            <p>Seconds</p>
+            <img
+              style={{
+                width: "20px",
+                height: "20px",
+                marginTop: "1rem",
+              }}
+              onClick={increaseSecond}
+              src={Up}
+              alt=""
+            />
+            <p>{inputSeconds}</p>
+            <img
+              style={{ width: "20px", height: "20px", marginTop: "0.5rem" }}
+              onClick={decreaseSecond}
+              src={down}
+              alt=""
+            />
+          </div>
+        </div>
+        <div
+          onClick={() => {
+            setTimerIsStart((prev) => !prev);
+          }}
+          className="btn"
+          style={{
+            background: "#FF6A6A",
+            borderRadius: "12px",
+            padding: "4px",
+            color: "white",
+            textAlign: "center",
+            width: "22rem",
+            marginLeft: "3rem",
+            fontSize: "20px",
+            marginBottom: "0.8rem",
+          }}
+        >
+          {timerIsStart ? <p>Pause</p> : <p>Start</p>}
+        </div>
       </div>
     </div>
   );
