@@ -5,6 +5,7 @@ import Cards from "../Components/Cards";
 export default function SelectCategory() {
   const [handleBtn, setHandleBtn] = useState([]);
   const [trueBtn, setTrueBtn] = useState([]);
+  const [isActive, setIsActive] = useState(false);
   return (
     <div className="scMainDiv">
       <div className="scPageDiv1">
@@ -13,6 +14,8 @@ export default function SelectCategory() {
           setHandleBtn={setHandleBtn}
           trueBtn={trueBtn}
           setTrueBtn={setTrueBtn}
+          isActive={isActive}
+          setIsActive={setIsActive}
         />
       </div>
       <div className="scPageDiv2">
@@ -21,6 +24,8 @@ export default function SelectCategory() {
           handleBtn={handleBtn}
           trueBtn={trueBtn}
           setTrueBtn={setTrueBtn}
+          isActive={isActive}
+          setIsActive={setIsActive}
         />
       </div>
     </div>

@@ -19,7 +19,13 @@ export default function Card(props) {
     } else {
       const array = props.handleBtn.filter((ele) => ele !== props.title);
       props.setHandleBtn(array);
-
+      // var new_data1 = props.title;
+      // if (localStorage.getItem("userDataButton") == null) {
+      //   localStorage.setItem("userDataButton", "[]");
+      // }
+      // var old_data1 = JSON.parse(localStorage.removeItem("userDataButton"));
+      // old_data.push(new_data1);
+      // window.localStorage.setItem("userDataButton", JSON.stringify(old_data1));
       let devicesArray = JSON.parse(localStorage.getItem("userDataButton"));
       devicesArray.splice(devicesArray.indexOf(props.title), 1);
       localStorage.setItem("userDataButton", JSON.stringify(devicesArray));

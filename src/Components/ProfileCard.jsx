@@ -20,11 +20,13 @@ export default function ProfileCard() {
             // for(let i =0;i<details.length;i++){
             //   <button>{details[i]}</button>
             // }
-            details.map((detail, index) => {
-              return (
-                <button className="profileCardBtn">{details[index]}</button>
-              );
-            })
+            details
+              .map((detail, index) => {
+                return (
+                  <button className="profileCardBtn">{details[index]}</button>
+                );
+              })
+              .slice(0, 4)
           }
         </div>
       </div>

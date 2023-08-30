@@ -8,6 +8,7 @@ export default function P2hButton(props) {
     } else {
       const array = props.handleBtn.filter((ele) => ele !== props.title);
       props.setHandleBtn(array);
+      props.setIsActive(!props.isActive);
       // window.localStorage.removeItem("userData");
     }
     // const found1 = props.trueBtn.find((element) => element === props.title);

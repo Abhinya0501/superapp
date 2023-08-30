@@ -17,6 +17,8 @@ export default function Page2Half(props) {
               title={title}
               handleBtn={props.handleBtn}
               setHandleBtn={props.setHandleBtn}
+              isActive={props.isActive}
+              setIsActive={props.setIsActive}
             />
           );
         })}

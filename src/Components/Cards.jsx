@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+// import React, { useState } from "react";
 import cardimg from "../assets/cardimg1.png";
 import dramaimg from "../assets/drama.png";
 import fantasyimg from "../assets/fantasy.png";
@@ -31,6 +31,8 @@ export default function Cards(props) {
             setHandleBtn={props.setHandleBtn}
             trueBtn={props.trueBtn}
             setTrueBtn={props.setTrueBtn}
+            isActive={props.isActive}
+            setIsActive={props.setIsActive}
           />
 
           <Card
@@ -43,6 +45,8 @@ export default function Cards(props) {
             setHandleBtn={props.setHandleBtn}
             trueBtn={props.trueBtn}
             setTrueBtn={props.setTrueBtn}
+            isActive={props.isActive}
+            setIsActive={props.setIsActive}
           />
           <Card
             title="Romance"
@@ -54,6 +58,8 @@ export default function Cards(props) {
             setHandleBtn={props.setHandleBtn}
             trueBtn={props.trueBtn}
             setTrueBtn={props.setTrueBtn}
+            isActive={props.isActive}
+            setIsActive={props.setIsActive}
           />
           <Card
             title="Thriller"
@@ -65,6 +71,8 @@ export default function Cards(props) {
             setHandleBtn={props.setHandleBtn}
             trueBtn={props.trueBtn}
             setTrueBtn={props.setTrueBtn}
+            isActive={props.isActive}
+            setIsActive={props.setIsActive}
           />
           <Card
             title="Western"
@@ -76,6 +84,8 @@ export default function Cards(props) {
             setHandleBtn={props.setHandleBtn}
             trueBtn={props.trueBtn}
             setTrueBtn={props.setTrueBtn}
+            isActive={props.isActive}
+            setIsActive={props.setIsActive}
           />
           <Card
             title="Horror"
@@ -87,6 +97,8 @@ export default function Cards(props) {
             setHandleBtn={props.setHandleBtn}
             trueBtn={props.trueBtn}
             setTrueBtn={props.setTrueBtn}
+            isActive={props.isActive}
+            setIsActive={props.setIsActive}
           />
           <Card
             title="Fantasy"
@@ -98,6 +110,8 @@ export default function Cards(props) {
             setHandleBtn={props.setHandleBtn}
             trueBtn={props.trueBtn}
             setTrueBtn={props.setTrueBtn}
+            isActive={props.isActive}
+            setIsActive={props.setIsActive}
           />
           <Card
             title="Music"
@@ -109,6 +123,8 @@ export default function Cards(props) {
             setHandleBtn={props.setHandleBtn}
             trueBtn={props.trueBtn}
             setTrueBtn={props.setTrueBtn}
+            isActive={props.isActive}
+            setIsActive={props.setIsActive}
           />
           <Card
             title="Fiction"
@@ -120,6 +136,8 @@ export default function Cards(props) {
             setHandleBtn={props.setHandleBtn}
             trueBtn={props.trueBtn}
             setTrueBtn={props.setTrueBtn}
+            isActive={props.isActive}
+            setIsActive={props.setIsActive}
           />
           <div className="cardDivBtn">
             <button onClick={onSubmit}>Next Page</button>
